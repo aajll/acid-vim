@@ -68,7 +68,7 @@ end
 vim.cmd([[call plug#begin()]])
 
 -- Appearance
-vim.cmd([[Plug 'samueljoli/cyberpunk.nvim']])
+vim.cmd([[Plug 'folke/tokyonight.nvim']])
 
 vim.cmd([[Plug 'vim-airline/vim-airline']])
 vim.cmd([[Plug 'vim-airline/vim-airline-themes']])
@@ -117,7 +117,7 @@ opt.smartindent = true -- Insert indents automatically
 
 -- Colorscheme
 -- Wrap in pcall to avoid errors if plugins aren't installed yet
-pcall(vim.cmd, "colorscheme cyberpunk")
+pcall(vim.cmd, "colorscheme tokyonight-moon")
 
 -- Setup functions for Lua plugins
 -- We wrap these in pcall to ensure the config doesn't crash on first load before PlugInstall
@@ -148,12 +148,16 @@ safe_setup("conform", {
 		python = { "black" },
 		c = { "clang-format" },
 		cpp = { "clang-format" },
-		json = { "jq" },
+		json = { "prettier" },
+		javascript = { "prettier" },
+		html = { "prettier" },
+		css = { "prettier" },
+		markdown = { "prettier" },
 	},
 	format_on_save = {
 		timeout_ms = 500,
 		lsp_format = "fallback",
-		quiet = true, -- Suppresses annoying formatter errors if there is a syntax error
+		quiet = true,
 	},
 })
 
